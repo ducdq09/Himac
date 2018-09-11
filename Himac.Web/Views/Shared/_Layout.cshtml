@@ -1,0 +1,107 @@
+﻿<!DOCTYPE html>
+<html style="" class="js flexbox flexboxlegacy canvas canvastext webgl no-touch geolocation postmessage websqldatabase indexeddb hashchange history draganddrop websockets rgba hsla multiplebgs backgroundsize borderimage borderradius boxshadow textshadow opacity cssanimations csscolumns cssgradients cssreflections csstransforms csstransforms3d csstransitions fontface generatedcontent video audio localstorage sessionstorage webworkers applicationcache svg inlinesvg smil svgclippaths gr__localhost">
+<head>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Himac</title>
+
+    <link href="~/Asset/libs/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="~/Asset/css/AdminLTE.min.css" rel="stylesheet" />
+    <link href="~/Asset/libs/Ionicons/css/ionicons.min.css" rel="stylesheet" />
+    <link href="~/Content/style.css" rel="stylesheet" />
+    <link href="~/Content/Site.css" rel="stylesheet" />
+    <link href="~/Asset/libs/datatables.net-bs/css/dataTables.bootstrap.min.css" rel="stylesheet" />
+    <link href="~/Asset/libs/font-awesome/css/font-awesome.min.css" rel="stylesheet" />
+    <link href="~/Content/Footer-with-button-logo.css" rel="stylesheet" />
+
+    <script src="~/Scripts/modernizr-2.6.2.js"></script>
+    <script src="~/Scripts/jquery-1.10.2.min.js"></script>
+    <script src="~/Asset/libs/datatables.net/js/jquery.dataTables.min.js"></script>
+</head>
+<body data-gr-c-s-loaded="true" cz-shortcut-listen="true">
+    <div class="header">
+        <div class="wrap clearfix">
+            <div class="header_l fl clearfix">
+                <a href="#"><img src="~/Content/menu.png"></a>
+                <div class="reg fr">
+                    <a href="../Back_End/register.html" target="_blank"><i class="fa fa-pencil-square-o"></i> Đăng ký</a> &nbsp;
+                    <a href="../Back_End/login.html" target="_blank"><i class="fa fa-sign-in"></i> Đăng nhập</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="menu">
+        <div class="wrap">
+            <ul class="slider clearfix">
+                <li><a href="@Url.Action("Index", "Home")" style="text-decoration: none !important">TRANG CHỦ</a></li>
+                <li><a href="@Url.Action("About", "Home")" style="text-decoration: none !important">GIỚI THIỆU</a></li>
+                <li><a href="#" style="text-decoration: none !important">TRỌNG TÀI</a></li>
+                <li><a href="#" style="text-decoration: none !important">HÒA GIẢI</a></li>
+                <li><a href="#" style="text-decoration: none !important">THƯ VIỆN PHÁP LUẬT</a></li>
+                <li><a href="#" style="text-decoration: none !important">HỎI ĐÁP PHÁP LUẬT</a></li>
+                <li><a href="#" style="text-decoration: none !important">TIN TỨC PHÁP LUẬT</a></li>
+                <li><a href="@Url.Action("Contact", "Home")" style="text-decoration: none !important">LIÊN HỆ</a></li>
+            </ul>
+        </div>
+    </div>
+    <div class="container body-content" style="padding-top: 15px; padding-left: 15px; min-height: 500px">
+        @RenderBody()
+
+        <hr />
+    </div>
+
+    <footer id="myFooter">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-3">
+                    <h2 class="logo"><a href="#"> HIMAC </a></h2>
+                </div>
+                <div class="col-sm-2">
+                    <h5>Trọng tài</h5>
+                    <ul>
+                        <li><a href="#">Quy tắc tố tụng trọng tài</a></li>
+                        <li><a href="#">Biểu phí</a></li>
+                        <li><a href="#">Điều khoản trọng tài mẫu</a></li>
+                    </ul>
+                </div>
+                <div class="col-sm-2">
+                    <h5>Hòa giải</h5>
+                    <ul>
+                        <li><a href="#">Quy tắc hòa giải</a></li>
+                        <li><a href="#">Biểu phí hòa giải</a></li>
+                        <li><a href="#">Điều khoản mẫu</a></li>
+                    </ul>
+                </div>
+                <div class="col-sm-3">
+                    <h5>Thư viện</h5>
+                    <ul>
+                        <li><a href="#">Hỏi đáp</a></li>
+                        <li><a href="#">Ấn phẩm</a></li>
+                        <li><a href="#">Văn bản mẫu</a></li>
+                        <li><a href="#">Văn bản quy phạm pháp luật</a></li>
+                        <li><a href="#">Bản tin</a></li>
+                    </ul>
+                </div>
+                <div class="col-sm-2">
+                    <div class="social-networks">
+                        <a href="#" class="twitter"><i class="fa fa-twitter"></i></a>
+                        <a href="#" class="facebook"><i class="fa fa-facebook"></i></a>
+                        <a href="#" class="google"><i class="fa fa-google-plus"></i></a>
+                    </div>
+                    <button type="button" class="btn btn-default">Liên hệ</button>
+                </div>
+            </div>
+        </div>
+        <div class="footer-copyright">
+            <p>© 2018 Copyright HIMAC </p>
+        </div>
+    </footer>
+
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @RenderSection("scripts", required: false)
+</body>
+</html>
