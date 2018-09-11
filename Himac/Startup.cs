@@ -16,6 +16,7 @@ namespace Himac
         public void ConfigureServices(IServiceCollection services)
         {
             //add service
+            //add MVC
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
