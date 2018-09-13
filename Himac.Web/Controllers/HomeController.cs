@@ -25,14 +25,20 @@ namespace Himac.Web.Controllers
 
         public ActionResult Get5VanBanMoiNhat()
         {
-            var vanBans = _vanBanService.SelectAll().ToList();
+            var vanBans = _vanBanService.Select5VanBanMoiNhat().ToList();
+            return PartialView("_TopVanBan", vanBans);
+        }
+
+        public ActionResult Get5HoiDapMoiNhat()
+        {
+            var vanBans = _vanBanService.Select5VanBanMoiNhat().ToList();
             return PartialView("_TopVanBan", vanBans);
         }
 
         public ActionResult Get16TinTucMoiNhat()
         {
             var tinTucs = _tinTucService.Select16TinPhapLuatMoiNhat().ToList();
-            return PartialView("_TopTinTuc", tinTucs);
+            return PartialView("_TopHoiDap", tinTucs);
         }
 
         public ActionResult About()

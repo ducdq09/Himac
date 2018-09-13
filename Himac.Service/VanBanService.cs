@@ -20,6 +20,8 @@ namespace Himac.Service
         VanBan Delete(int id);
 
         void Save();
+
+        IEnumerable<VanBan> Select5VanBanMoiNhat();
     }
 
     public class VanBanService : IVanBanService

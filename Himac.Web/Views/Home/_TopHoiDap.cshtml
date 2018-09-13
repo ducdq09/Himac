@@ -1,0 +1,68 @@
+﻿@model IEnumerable<Himac.Model.Models.VanBan>
+
+<div class="form-group">
+    <table class="table tblData table-striped table-bordered table-hover nowrap" style="width:100%">
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr role="row">
+                    <td style="vertical-align: middle">
+                        @{
+                            var tenVb = item.TenVanBan;
+                            if (tenVb.Length > 110)
+                            {
+                                <a class="post-title" href="#">@item.TenVanBan.Substring(0, 110)...</a>
+                            }
+                            else
+                            {
+                                <a class="post-title" href="#">@item.TenVanBan</a>
+                            }
+                            <br/>
+                        }
+                    </td>
+                    <td style="vertical-align: middle; width: 160px; font-size: 12px">
+                        Ban hành: <span class="text-warning">
+                            @{
+                                var banHanh = item.NgayBanHanh;
+                                if (banHanh == null)
+                                {
+                                    <span style="font-weight: initial">Đang cập nhật</span>
+                                }
+                                else
+                                {
+                                    <span style="font-weight: initial">@item.NgayBanHanh</span>
+                                }
+                            }
+                        </span> <br />
+                        Áp dụng: <span class="text-warning">
+                            @{
+                                var ad = item.ApDung;
+                                if (ad == null)
+                                {
+                                    <span style="font-weight: initial">Đang cập nhật</span>
+                                }
+                                else
+                                {
+                                    <span style="font-weight: initial">@ad</span>
+                                }
+                            }
+                        </span> <br />
+                        Hiệu lực: <span class="text-warning">
+                            @{
+                                var hl = item.TinhTrangHieuLuc;
+                                if (hl == null)
+                                {
+                                    <span style="font-weight: initial">Đang cập nhật</span>
+                                }
+                                else
+                                {
+                                    <span style="font-weight: initial">@hl</span>
+                                }
+                            }
+                        </span>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>

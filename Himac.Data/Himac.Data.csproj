@@ -97,8 +97,10 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repositories\LinhVucRepository.cs" />
     <Compile Include="Repositories\LoaiTinTucRepository.cs" />
+    <Compile Include="Repositories\LoaiHoiDapRepository.cs" />
     <Compile Include="Repositories\LoaiVanBanRepository.cs" />
     <Compile Include="Repositories\TinTucRepository.cs" />
+    <Compile Include="Repositories\HoiDapRepository.cs" />
     <Compile Include="Repositories\VanBanRepository.cs" />
   </ItemGroup>
   <ItemGroup>

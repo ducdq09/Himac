@@ -15,6 +15,8 @@ namespace Himac.Data
         public DbSet<VanBan> VanBans { get; set; }
         public DbSet<LoaiTinTuc> LoaiTinTucs { get; set; }
         public DbSet<TinTuc> TinTucs { get; set; }
+        public DbSet<LoaiHoiDap> LoaiHoiDaps { get; set; }
+        public DbSet<HoiDap> HoiDaps { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder builder)
         {

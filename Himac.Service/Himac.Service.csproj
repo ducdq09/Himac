@@ -69,10 +69,12 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="LinhVucService.cs" />
+    <Compile Include="LoaiHoiDapService.cs" />
     <Compile Include="LoaiVanBanService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="TinTucService.cs" />
     <Compile Include="LoaiTinTucService.cs" />
+    <Compile Include="HoiDapService.cs" />
     <Compile Include="VanBanService.cs" />
   </ItemGroup>
   <ItemGroup>
