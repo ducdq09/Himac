@@ -10,12 +10,14 @@ namespace Himac.Data
             this.Configuration.LazyLoadingEnabled = false;
         }
 
+        public DbSet<LinhVuc> LinhVucs { get; set; }
         public DbSet<LoaiVanBan> LoaiVanBans { get; set; }
         public DbSet<VanBan> VanBans { get; set; }
+        public DbSet<LoaiTinTuc> LoaiTinTucs { get; set; }
+        public DbSet<TinTuc> TinTucs { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder builder)
         {
-
         }
     }
 }

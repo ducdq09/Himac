@@ -2622,3 +2622,9 @@ p.spe {
     font-weight: 400;
     color: #7d7d7d;
 }
+
+.post-title {
+    float: left;
+    width: 100%;
+    line-height: 25px;
+}

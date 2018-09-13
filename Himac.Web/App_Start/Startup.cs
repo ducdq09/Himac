@@ -34,12 +34,12 @@ namespace Himac.Web.App_Start
             builder.RegisterType<HimacDbContext>().AsSelf().InstancePerRequest();
 
             // Repositories
-            builder.RegisterAssemblyTypes(typeof(LoaiVanBanRepository).Assembly)
+            builder.RegisterAssemblyTypes(typeof(LinhVucRepository).Assembly)
                 .Where(t => t.Name.EndsWith("Repository"))
                 .AsImplementedInterfaces().InstancePerRequest();
 
             // Services
-            builder.RegisterAssemblyTypes(typeof(LoaiVanBanService).Assembly)
+            builder.RegisterAssemblyTypes(typeof(LinhVucService).Assembly)
                 .Where(t => t.Name.EndsWith("Service"))
                 .AsImplementedInterfaces()
                 .InstancePerRequest();

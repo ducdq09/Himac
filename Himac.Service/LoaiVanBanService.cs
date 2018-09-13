@@ -1,7 +1,6 @@
 ﻿using Himac.Data.Infrastructure;
 using Himac.Data.Repositories;
 using Himac.Model.Models;
-using System;
 using System.Collections.Generic;
 
 namespace Himac.Service
@@ -23,8 +22,8 @@ namespace Himac.Service
 
     public class LoaiVanBanService : ILoaiVanBanService
     {
-        private readonly ILoaiVanBanRepository _loaiVanBanRepository;
-        private readonly IUnitOfWork _unitOfWork;
+        private ILoaiVanBanRepository _loaiVanBanRepository;
+        private IUnitOfWork _unitOfWork;
 
         public LoaiVanBanService(ILoaiVanBanRepository loaiVanBanRepository, IUnitOfWork unitOfWork)
         {

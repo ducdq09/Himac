@@ -1,0 +1,214 @@
+﻿@using Himac.Model.Models
+@model IEnumerable<Himac.Model.Models.TinTuc>
+
+@{
+    var totalNews = Model.Count();
+    var count = 0;
+
+    List<TinTuc> top4Model = new List<TinTuc>();
+    List<TinTuc> endModel = new List<TinTuc>();
+    List<TinTuc> temp = new List<TinTuc>();
+
+    foreach (var item in Model.OrderByDescending(m => m.TinTucId))
+    {
+        if (count < 4)
+        {
+            top4Model.Add(item);
+        }
+        else
+        {
+            endModel.Add(item);
+        }
+
+        count++;
+    }
+}
+<div class="row">
+    <div class="box box-info">
+        <div class="box-header">
+            <b class="text-primary"><i class="fa fa-newspaper-o"></i> TIN TỨC PHÁP LUẬT</b>
+        </div>
+        <div class="box-body">
+            <div class="row">
+                <div class="col-md-12">
+                    <div style="height: 300px">
+                        <div>
+                            <div id="newsCarousel" class="carousel slide" data-ride="carousel">
+                                <!-- Indicators -->
+                                <ol class="carousel-indicators">
+                                    @if (top4Model.Count > 0)
+                                    {
+                                        <li data-target="#newsCarousel" data-slide-to="0" class="active"></li>
+                                    }
+
+                                    @if (endModel.Count > 0)
+                                    {
+                                        var car = 0;
+                                        var cnt = endModel.Count;
+                                        foreach (var em in endModel)
+                                        {
+                                            temp.Add(em);
+                                            cnt--;
+                                            car++;
+
+                                            if (temp.Count == 4)
+                                            {
+                                                <li data-target="#newsCarousel" data-slide-to="@car"></li>
+
+                                                temp = new List<TinTuc>();
+                                            }
+                                            if (cnt == 0)
+                                            {
+                                                <li data-target="#newsCarousel" data-slide-to="@car"></li>
+                                            }
+                                        }
+                                    }
+                                </ol>
+
+                                <!-- Wrapper for slides -->
+                                <div class="carousel-inner">
+                                    @{
+                                        if (top4Model.Count > 0)
+                                        {
+                                            <div class="item active">
+                                                @foreach (var item in top4Model)
+                                                {
+                                                    <div class="col-md-3">
+                                                        <div class="newItem">
+                                                            <div class="newItem-overlay"></div>
+                                                            <div class="newItem-content">
+                                                                <div class="newItem-top-content">
+                                                                    <div class="newItem-top-content-inner">
+                                                                        <div class="newItem-product">
+                                                                            <div class="newItem-top-title">
+                                                                                <H5>@item.TieuDe</H5>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="newItem-add-content">
+                                                                    <div class="newItem-add-content-inner">
+                                                                        <div class="pd-block"></div>
+                                                                        <div class="section">
+                                                                            <a class="btn btn-primary custom-button pull-right" href="#"
+                                                                               target="_blank"><span class="fa fa-eye"></span>&nbsp; Xem</a>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="bg-newItem">
+                                                                <img title="@item.TieuDe"
+                                                                     alt="@item.TieuDe" src="@Url.Content(item.ImagePath)">
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                }
+                                            </div>
+                                        }
+                                        if (endModel.Count > 0)
+                                        {
+                                            temp = new List<TinTuc>();
+                                            var cnt = endModel.Count;
+                                            foreach (var em in endModel)
+                                            {
+                                                temp.Add(em);
+                                                cnt--;
+
+                                                if (temp.Count == 4)
+                                                {
+                                                    <div class="item">
+                                                        @foreach (var te in temp)
+                                                        {
+                                                            <div class="col-md-3">
+                                                                <div class="newItem">
+                                                                    <div class="newItem-overlay"></div>
+                                                                    <div class="newItem-content">
+                                                                        <div class="newItem-top-content">
+                                                                            <div class="newItem-top-content-inner">
+                                                                                <div class="newItem-product">
+                                                                                    <div class="newItem-top-title">
+                                                                                        <H5>@te.TieuDe</H5>
+                                                                                    </div>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                        <div class="newItem-add-content">
+                                                                            <div class="newItem-add-content-inner">
+                                                                                <div class="pd-block"></div>
+                                                                                <div class="section">
+                                                                                    <a class="btn btn-primary custom-button pull-right" href="#"
+                                                                                       target="_blank"><span class="fa fa-eye"></span>&nbsp; Xem</a>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="bg-newItem">
+                                                                        <img title="@te.TieuDe"
+                                                                             alt="@te.TieuDe" src="@Url.Content(te.ImagePath)">
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        }
+                                                    </div>
+
+                                                    temp = new List<TinTuc>();
+                                                }
+                                                if (cnt == 0)
+                                                {
+                                                    <div class="item">
+                                                        @foreach (var te in temp)
+                                                        {
+                                                            <div class="col-md-3">
+                                                                <div class="newItem">
+                                                                    <div class="newItem-overlay"></div>
+                                                                    <div class="newItem-content">
+                                                                        <div class="newItem-top-content">
+                                                                            <div class="newItem-top-content-inner">
+                                                                                <div class="newItem-product">
+                                                                                    <div class="newItem-top-title">
+                                                                                        <H5>@te.TieuDe</H5>
+                                                                                    </div>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                        <div class="newItem-add-content">
+                                                                            <div class="newItem-add-content-inner">
+                                                                                <div class="pd-block"></div>
+                                                                                <div class="section">
+                                                                                    <a class="btn btn-primary custom-button pull-right" href="#"
+                                                                                       target="_blank"><span class="fa fa-eye"></span>&nbsp; Xem</a>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="bg-newItem">
+                                                                        <img title="@te.TieuDe"
+                                                                             alt="@te.TieuDe" src="@Url.Content(te.ImagePath)">
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        }
+                                                    </div>
+                                                }
+                                            }
+                                        }
+                                    }
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Left and right controls -->
+                        <a class="left carousel-control" href="#newsCarousel" data-slide="prev" style="height: 100px">
+                            <span class="glyphicon glyphicon-chevron-left"></span>
+                            <span class="sr-only">Previous</span>
+                        </a>
+                        <a class="right carousel-control" href="#newsCarousel" data-slide="next" style="height: 100px">
+                            <span class="glyphicon glyphicon-chevron-right"></span>
+                            <span class="sr-only">Next</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

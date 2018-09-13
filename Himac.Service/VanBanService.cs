@@ -3,6 +3,7 @@ using Himac.Data.Repositories;
 using Himac.Model.Models;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace Himac.Service
 {
@@ -61,6 +62,12 @@ namespace Himac.Service
         public void Save()
         {
             _unitOfWork.Commit();
+        }
+
+        // Add new
+        public IEnumerable<VanBan> Select5VanBanMoiNhat()
+        {
+            return _vanBanRepository.Get5VanBanMoiNhat().ToList();
         }
     }
 }

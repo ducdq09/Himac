@@ -7,13 +7,13 @@ namespace Himac.Data.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.2.0-61023")]
-    public sealed partial class init1 : IMigrationMetadata
+    public sealed partial class _1c : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(init1));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(_1c));
         
         string IMigrationMetadata.Id
         {
-            get { return "201809091528338_init1"; }
+            get { return "201809122357224_1c"; }
         }
         
         string IMigrationMetadata.Source

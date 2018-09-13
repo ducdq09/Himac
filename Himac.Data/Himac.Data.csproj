@@ -85,13 +85,20 @@
     <Compile Include="Infrastructure\RepositoryBase.cs" />
     <Compile Include="Infrastructure\IUnitOfWork.cs" />
     <Compile Include="Infrastructure\UnitOfWork.cs" />
-    <Compile Include="Migrations\201809091528338_init1.cs" />
-    <Compile Include="Migrations\201809091528338_init1.Designer.cs">
-      <DependentUpon>201809091528338_init1.cs</DependentUpon>
+    <Compile Include="Migrations\201809121401420_1.cs" />
+    <Compile Include="Migrations\201809121401420_1.Designer.cs">
+      <DependentUpon>201809121401420_1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201809122357224_1c.cs" />
+    <Compile Include="Migrations\201809122357224_1c.Designer.cs">
+      <DependentUpon>201809122357224_1c.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Repositories\LinhVucRepository.cs" />
+    <Compile Include="Repositories\LoaiTinTucRepository.cs" />
     <Compile Include="Repositories\LoaiVanBanRepository.cs" />
+    <Compile Include="Repositories\TinTucRepository.cs" />
     <Compile Include="Repositories\VanBanRepository.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -100,15 +107,18 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201809091528338_init1.resx">
-      <DependentUpon>201809091528338_init1.cs</DependentUpon>
-    </EmbeddedResource>
-  </ItemGroup>
-  <ItemGroup>
     <ProjectReference Include="..\Himac.Model\Himac.Model.csproj">
       <Project>{992E2DFE-CC6C-44A2-B6DF-D9EE2F81C895}</Project>
       <Name>Himac.Model</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\201809121401420_1.resx">
+      <DependentUpon>201809121401420_1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201809122357224_1c.resx">
+      <DependentUpon>201809122357224_1c.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

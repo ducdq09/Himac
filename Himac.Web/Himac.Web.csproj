@@ -163,7 +163,10 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.cs" />
     <Compile Include="Areas\Admin\AdminAreaRegistration.cs" />
+    <Compile Include="Areas\Admin\Controllers\LinhVucsController.cs" />
     <Compile Include="Areas\Admin\Controllers\LoaiVanBansController.cs" />
+    <Compile Include="Areas\Admin\Controllers\TinTucsController.cs" />
+    <Compile Include="Areas\Admin\Controllers\VanBansController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -235,7 +238,7 @@
     <Content Include="Asset\img\user8-128x128.jpg" />
     <Content Include="Asset\js\adminlte.js" />
     <Content Include="Asset\js\adminlte.min.js" />
-    <Content Include="Asset\js\demo.js" />
+    <Content Include="Asset\js\Himac.js" />
     <Content Include="Asset\js\pages\dashboard.js" />
     <Content Include="Asset\js\pages\dashboard2.js" />
     <Content Include="Asset\libs\bootstrap-colorpicker\dist\css\bootstrap-colorpicker.css" />
@@ -6465,11 +6468,6 @@
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Areas\Admin\Views\web.config" />
     <Content Include="Areas\Admin\Views\Shared\_Layout.cshtml" />
-    <Content Include="Areas\Admin\Views\LoaiVanBans\Create.cshtml" />
-    <Content Include="Areas\Admin\Views\LoaiVanBans\Delete.cshtml" />
-    <Content Include="Areas\Admin\Views\LoaiVanBans\Details.cshtml" />
-    <Content Include="Areas\Admin\Views\LoaiVanBans\Edit.cshtml" />
-    <Content Include="Areas\Admin\Views\LoaiVanBans\Index.cshtml" />
     <Content Include="Asset\libs\bootstrap-colorpicker\.bower.json" />
     <Content Include="Asset\libs\bootstrap-colorpicker\bower.json" />
     <Content Include="Asset\libs\bootstrap-colorpicker\dist\css\bootstrap-colorpicker.css.map" />
@@ -6951,6 +6949,26 @@
     <Content Include="Asset\css\adminlte.css.map" />
     <Content Include="Asset\css\adminlte.min.css.map" />
     <Content Include="ConnectionStrings.config" />
+    <Content Include="Areas\Admin\Views\LinhVucs\Create.cshtml" />
+    <Content Include="Areas\Admin\Views\LinhVucs\Delete.cshtml" />
+    <Content Include="Areas\Admin\Views\LinhVucs\Details.cshtml" />
+    <Content Include="Areas\Admin\Views\LinhVucs\Edit.cshtml" />
+    <Content Include="Areas\Admin\Views\LinhVucs\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\LoaiVanBans\Create.cshtml" />
+    <Content Include="Areas\Admin\Views\LoaiVanBans\Delete.cshtml" />
+    <Content Include="Areas\Admin\Views\LoaiVanBans\Details.cshtml" />
+    <Content Include="Areas\Admin\Views\LoaiVanBans\Edit.cshtml" />
+    <Content Include="Areas\Admin\Views\LoaiVanBans\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\VanBans\Create.cshtml" />
+    <Content Include="Areas\Admin\Views\VanBans\Delete.cshtml" />
+    <Content Include="Areas\Admin\Views\VanBans\Details.cshtml" />
+    <Content Include="Areas\Admin\Views\VanBans\Edit.cshtml" />
+    <Content Include="Areas\Admin\Views\VanBans\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\TinTucs\Create.cshtml" />
+    <Content Include="Areas\Admin\Views\TinTucs\Delete.cshtml" />
+    <Content Include="Areas\Admin\Views\TinTucs\Details.cshtml" />
+    <Content Include="Areas\Admin\Views\TinTucs\Edit.cshtml" />
+    <Content Include="Areas\Admin\Views\TinTucs\Index.cshtml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
@@ -6977,10 +6995,13 @@
     <Content Include="Views\Home\About.cshtml" />
     <Content Include="Views\Home\Contact.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\Home\_TopVanBan.cshtml" />
+    <Content Include="Views\Home\_TopTinTuc.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Areas\Admin\Models\" />
+    <Folder Include="FileUploads\" />
     <Folder Include="Models\" />
   </ItemGroup>
   <ItemGroup>

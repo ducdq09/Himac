@@ -20,6 +20,11 @@ namespace Himac.Common
             public const int ShortMaMaxLength = 32;
             public const int MaMaxLength = 64;
 
+            public const int TitleMaxLength = 1000;
+            public const int DescriptionMaxLength = 1000;
+            public const int ContentMaxLength = 5000;
+            public const int ImagePathMaxLength = 500;
+
             public const int ShortNameMaxLength = 64;
             public const int NameMaxLength = 128;
             public const int LongNameMaxLength = 256;
@@ -29,7 +34,7 @@ namespace Himac.Common
             public const int LongMessageMaxLength = OracleVarchar2MaxStringLength;
 
             public const int FilenameMaxLength = 256;
-            public const int FilePathnameMaxLength = 256;
+            public const int FilePathnameMaxLength = 500;
 
             public const int SoDienThoaiMaxLength = 16;
             public const int GhichuMaxLength = MessageMaxLength;
