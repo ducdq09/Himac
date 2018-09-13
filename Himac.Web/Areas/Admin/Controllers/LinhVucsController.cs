@@ -20,6 +20,11 @@ namespace Himac.Web.Areas.Admin.Controllers
         // GET: Admin/LinhVucs
         public ActionResult Index()
         {
+            ViewBag.vTitle = "Lĩnh vực";
+            ViewBag.vMenu = "Admin";
+            ViewBag.vController = "Lĩnh vực";
+            ViewBag.vAction = "Danh sách";
+
             var linhVucs = _linhVucService.SelectAll().ToList();
             return View(linhVucs);
         }

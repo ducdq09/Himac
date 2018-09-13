@@ -19,6 +19,11 @@ namespace Himac.Web.Areas.Admin.Controllers
         // GET: Admin/TinTucs
         public ActionResult Index()
         {
+            ViewBag.vTitle = "Tin tức";
+            ViewBag.vMenu = "Admin";
+            ViewBag.vController = "Tin tức";
+            ViewBag.vAction = "Danh sách";
+
             var tinTucs = db.TinTucs.Include(t => t.LoaiTinTuc);
             return View(tinTucs.ToList());
         }

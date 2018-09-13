@@ -1,13 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Data;
+﻿using Himac.Data;
+using Himac.Model.Models;
 using System.Data.Entity;
 using System.Linq;
 using System.Net;
-using System.Web;
 using System.Web.Mvc;
-using Himac.Data;
-using Himac.Model.Models;
 
 namespace Himac.Web.Areas.Admin.Controllers
 {
@@ -18,6 +14,11 @@ namespace Himac.Web.Areas.Admin.Controllers
         // GET: Admin/HoiDaps
         public ActionResult Index()
         {
+            ViewBag.vTitle = "Hỏi đáp Pháp luật";
+            ViewBag.vMenu = "Admin";
+            ViewBag.vController = "Hỏi đáp Pháp luật";
+            ViewBag.vAction = "Danh sách";
+
             var hoiDaps = db.HoiDaps.Include(h => h.LinhVuc);
             return View(hoiDaps.ToList());
         }
@@ -45,7 +46,7 @@ namespace Himac.Web.Areas.Admin.Controllers
         }
 
         // POST: Admin/HoiDaps/Create
-        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
+        // To protect from overposting attacks, please enable the specific properties you want to bind to, for
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
@@ -79,7 +80,7 @@ namespace Himac.Web.Areas.Admin.Controllers
         }
 
         // POST: Admin/HoiDaps/Edit/5
-        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
+        // To protect from overposting attacks, please enable the specific properties you want to bind to, for
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]

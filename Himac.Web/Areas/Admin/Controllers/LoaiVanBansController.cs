@@ -1,10 +1,8 @@
-﻿using Himac.Data;
-using Himac.Model.Models;
-using System.Data.Entity;
+﻿using Himac.Model.Models;
+using Himac.Service;
 using System.Linq;
 using System.Net;
 using System.Web.Mvc;
-using Himac.Service;
 
 namespace Himac.Web.Areas.Admin.Controllers
 {
@@ -20,6 +18,11 @@ namespace Himac.Web.Areas.Admin.Controllers
         // GET: Admin/LoaiVanBans
         public ActionResult Index()
         {
+            ViewBag.vTitle = "Loại Văn bản";
+            ViewBag.vMenu = "Admin";
+            ViewBag.vController = "Loại Văn bản";
+            ViewBag.vAction = "Danh sách";
+
             var loaiVanBans = _loaiVanBanService.SelectAll().ToList();
             return View(loaiVanBans);
         }

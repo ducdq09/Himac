@@ -101,6 +101,10 @@
     <Compile Include="Migrations\201809130606306_2c.Designer.cs">
       <DependentUpon>201809130606306_2c.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201809131356588_3d.cs" />
+    <Compile Include="Migrations\201809131356588_3d.Designer.cs">
+      <DependentUpon>201809131356588_3d.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repositories\LinhVucRepository.cs" />
@@ -133,6 +137,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201809130606306_2c.resx">
       <DependentUpon>201809130606306_2c.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201809131356588_3d.resx">
+      <DependentUpon>201809131356588_3d.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

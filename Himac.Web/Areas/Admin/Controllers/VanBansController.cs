@@ -18,6 +18,11 @@ namespace Himac.Web.Areas.Admin.Controllers
         // GET: Admin/VanBans
         public ActionResult Index()
         {
+            ViewBag.vTitle = "Văn bản";
+            ViewBag.vMenu = "Admin";
+            ViewBag.vController = "Văn bản";
+            ViewBag.vAction = "Danh sách";
+
             var vanBans = db.VanBans.Include(v => v.LinhVuc).Include(v => v.LoaiVanBan);
             return View(vanBans.ToList());
         }

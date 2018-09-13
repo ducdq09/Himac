@@ -1,3 +1,80 @@
 ﻿@{
     ViewBag.Title = "Contact";
 }
+<style>
+    .nav-tabs-custom>.nav>li {
+        border-top: 3px solid transparent;
+        margin-bottom: -2px;
+        margin-right: 5px;
+    }
+
+    .nav-tabs-custom>.nav>li.active {
+        border-top-color: #3c8dbc;
+    }
+	
+	
+    .nav-tabs-custom>.nav>li {
+        border-top: 3px solid transparent;
+        margin-bottom: -2px;
+        margin-right: 5px;
+    }
+
+    .nav-tabs>li {
+        float: left;
+        margin-bottom: -1px;
+    }
+
+</style>
+
+<hr/>
+<div class="box box-danger">
+    <div class="box-header">
+        <b class="text-primary"><i class="fa fa-search-plus"></i> TRA CỨU THÔNG TIN</b>
+    </div>
+    <div class="box-body">
+        <div class="row">
+            <div class="col-md-12 col-xs-12">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="nav-tabs-custom">
+                            <div class="col-md-3">
+                                <ul class="nav">
+                                    <li style="background-color: bisque;" class="active"><a href="#tabvanbanphapluat" data-toggle="tab" aria-expanded="true">Văn bản Pháp Luật</a></li>
+                                    <li style="background-color: bisque;" class=""><a href="#tabhoidapphapluat" data-toggle="tab" aria-expanded="false">Hỏi đáp Pháp Luật</a></li>
+                                </ul>
+                            </div>
+                            <div class="col-md-9">
+                                <div class="tab-content">
+                                    <div class="tab-pane active" id="tabvanbanphapluat">
+                                        <p class="margin">Từ khoá: <code>Số Hiệu, Tiêu đề hoặc Nội dung ngắn gọn của Văn Bản...</code></p>
+                                        <div class="input-group input-group-sm">
+                                            <input type="text" class="form-control" placeholder="Tìm Văn bản Pháp luật...">
+                                            <span class="input-group-btn">
+                                                <button type="button" class="btn btn-info btn-flat">Tìm kiếm</button>
+                                            </span>
+                                        </div>
+                                        <p class="margin">
+                                            <code>Tra cứu nhanh :</code> &nbsp;&nbsp;<a href="#">Thời điểm Áp dụng</a> &nbsp;&nbsp;&nbsp;&nbsp;
+                                            <a href="#">Tình trạng Hiệu lực</a> &nbsp;&nbsp;&nbsp;&nbsp;
+                                            <a href="#">Lĩnh vực, Ngành</a> &nbsp;&nbsp;&nbsp;&nbsp;
+                                            <a href="#">Thời gian Ban hành</a>
+                                        </p>
+                                    </div>
+                                    <div class="tab-pane" id="tabhoidapphapluat">
+                                        <p class="margin">Từ khoá: <code>Số Hiệu, Tiêu đề hoặc Nội dung ngắn gọn của Hỏi đáp...</code></p>
+                                        <div class="input-group input-group-sm">
+                                            <input type="text" class="form-control" placeholder="Tìm Hỏi đáp Pháp luật...">
+                                            <span class="input-group-btn">
+                                                <button type="button" class="btn btn-info btn-flat">Tìm kiếm</button>
+                                            </span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

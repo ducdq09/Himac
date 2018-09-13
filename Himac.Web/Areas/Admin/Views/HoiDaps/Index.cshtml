@@ -5,78 +5,158 @@
     Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Index</h2>
+<style>
+    tbody tr td {
+        vertical-align: middle;
+    }
+</style>
 
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
-<table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.LinhVuc.TenLinhVuc)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.CauHoi)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.ImagePath)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.FilePath)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.OrderHint)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.CreatedDate)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.CreatedBy)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.UpdatedDate)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.UpdatedBy)
-        </th>
-        <th></th>
-    </tr>
-
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.LinhVuc.TenLinhVuc)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.CauHoi)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.ImagePath)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.FilePath)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.OrderHint)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.CreatedDate)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.CreatedBy)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.UpdatedDate)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.UpdatedBy)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.HoiDapId }) |
-            @Html.ActionLink("Details", "Details", new { id=item.HoiDapId }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.HoiDapId })
-        </td>
-    </tr>
-}
-
-</table>
+<!-- Content Header (Page header) -->
+<section class="content-header">
+    <h1> @ViewBag.vTitle <small> </small></h1>
+    <ol class="breadcrumb">
+        <li><a href="#"><i class="fa fa-dashboard"></i> @ViewBag.vMenu</a></li>
+        <li><a href="#">@ViewBag.vController</a></li>
+        <li class="active">@ViewBag.vAction</li>
+    </ol>
+</section>
+<!-- Main content -->
+<section class="content">
+    <div class="row">
+        <div class="col-xs-12">
+            <div class="box">
+                <div class="box-header">
+                    <p class="pull-left">
+                        @Html.ActionLink("Thêm mới", "Create", null, new { @class = "btn btn-success" })
+                    </p>
+                </div>
+                <!-- /.box-header -->
+                <div class="box-body">
+                    <table class="display table table-bordered table-striped table-condensed table-hover table-responsive">
+                        <thead>
+                            <tr>
+                                <th>STT</th>
+                                <th>
+                                    @Html.DisplayNameFor(model => model.LinhVuc.TenLinhVuc)
+                                </th>
+                                <th>
+                                    @Html.DisplayNameFor(model => model.CauHoi)
+                                </th>
+                                <th>
+                                    @Html.DisplayNameFor(model => model.ImagePath)
+                                </th>
+                                <th>
+                                    @Html.DisplayNameFor(model => model.FilePath)
+                                </th>
+                                <th>
+                                    @Html.DisplayNameFor(model => model.OrderHint)
+                                </th>
+                                <th>
+                                    @Html.DisplayNameFor(model => model.CreatedDate)
+                                </th>
+                                <th>
+                                    @Html.DisplayNameFor(model => model.CreatedBy)
+                                </th>
+                                <th>
+                                    @Html.DisplayNameFor(model => model.UpdatedDate)
+                                </th>
+                                <th>
+                                    @Html.DisplayNameFor(model => model.UpdatedBy)
+                                </th>
+                                <th></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @{int rowNo = 0;}
+                            @foreach (var item in Model)
+                            {
+                                <tr>
+                                    <td style="text-align: center; vertical-align: middle">@{rowNo++;} @rowNo</td>
+                                    <td style="vertical-align: middle">
+                                        @Html.DisplayFor(modelItem => item.LinhVuc.TenLinhVuc)
+                                    </td>
+                                    <td style="vertical-align: middle">
+                                        @Html.DisplayFor(modelItem => item.CauHoi)
+                                    </td>
+                                    <td style="vertical-align: middle">
+                                        @Html.DisplayFor(modelItem => item.ImagePath)
+                                    </td>
+                                    <td style="vertical-align: middle">
+                                        @Html.DisplayFor(modelItem => item.FilePath)
+                                    </td>
+                                    <td style="vertical-align: middle">
+                                        @Html.DisplayFor(modelItem => item.OrderHint)
+                                    </td>
+                                    <td style="vertical-align: middle">
+                                        @Html.DisplayFor(modelItem => item.CreatedDate)
+                                    </td>
+                                    <td style="vertical-align: middle">
+                                        @Html.DisplayFor(modelItem => item.CreatedBy)
+                                    </td>
+                                    <td style="vertical-align: middle">
+                                        @Html.DisplayFor(modelItem => item.UpdatedDate)
+                                    </td>
+                                    <td style="vertical-align: middle">
+                                        @Html.DisplayFor(modelItem => item.UpdatedBy)
+                                    </td>
+                                    <td style="text-align: center">
+                                        <div class="btn-group">
+                                            <button type="button" class="btn btn-info btn-flat">Tác vụ</button>
+                                            <button type="button" class="btn btn-info btn-flat dropdown-toggle" data-toggle="dropdown">
+                                                <span class="caret"></span>
+                                                <span class="sr-only">Toggle Dropdown</span>
+                                            </button>
+                                            <ul class="dropdown-menu" role="menu">
+                                                <li>@Html.ActionLink("Xem chi tiết", "Details", new { id = item.LinhVucId })</li>
+                                                <li>@Html.ActionLink("Sửa", "Edit", new { id = item.LinhVucId })</li>
+                                                <li>@Html.ActionLink("Xóa", "Delete", new { id = item.LinhVucId })</li>
+                                            </ul>
+                                        </div>
+                                    </td>
+                                </tr>
+                            }
+                        </tbody>
+                        <tfoot>
+                            <tr>
+                                <th>STT</th>
+                                <th>
+                                    @Html.DisplayNameFor(model => model.LinhVuc.TenLinhVuc)
+                                </th>
+                                <th>
+                                    @Html.DisplayNameFor(model => model.CauHoi)
+                                </th>
+                                <th>
+                                    @Html.DisplayNameFor(model => model.ImagePath)
+                                </th>
+                                <th>
+                                    @Html.DisplayNameFor(model => model.FilePath)
+                                </th>
+                                <th>
+                                    @Html.DisplayNameFor(model => model.OrderHint)
+                                </th>
+                                <th>
+                                    @Html.DisplayNameFor(model => model.CreatedDate)
+                                </th>
+                                <th>
+                                    @Html.DisplayNameFor(model => model.CreatedBy)
+                                </th>
+                                <th>
+                                    @Html.DisplayNameFor(model => model.UpdatedDate)
+                                </th>
+                                <th>
+                                    @Html.DisplayNameFor(model => model.UpdatedBy)
+                                </th>
+                                <th></th>
+                            </tr>
+                        </tfoot>
+                    </table>
+                </div>
+                <!-- /.box-body -->
+            </div>
+            <!-- /.box -->
+        </div>
+        <!-- /.col -->
+    </div>
+    <!-- /.row -->
+</section>
+<!-- /.content -->
