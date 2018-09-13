@@ -4,12 +4,19 @@ using System.Data.Entity;
 using System.Linq;
 using System.Net;
 using System.Web.Mvc;
+using Himac.Service;
 
 namespace Himac.Web.Areas.Admin.Controllers
 {
     public class HoiDapsController : Controller
     {
         private HimacDbContext db = new HimacDbContext();
+        private readonly IHoiDapService _hoiDapService;
+
+        public HoiDapsController(IHoiDapService hoiDapService)
+        {
+            this._hoiDapService = hoiDapService;
+        }
 
         // GET: Admin/HoiDaps
         public ActionResult Index()
@@ -19,18 +26,19 @@ namespace Himac.Web.Areas.Admin.Controllers
             ViewBag.vController = "Hỏi đáp Pháp luật";
             ViewBag.vAction = "Danh sách";
 
-            var hoiDaps = db.HoiDaps.Include(h => h.LinhVuc);
+            var hoiDaps = _hoiDapService.SelectAll();
             return View(hoiDaps.ToList());
         }
 
         // GET: Admin/HoiDaps/Details/5
-        public ActionResult Details(int? id)
+        public ActionResult Details(int id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            HoiDap hoiDap = db.HoiDaps.Find(id);
+
+            HoiDap hoiDap = _hoiDapService.SelectById(id);
             if (hoiDap == null)
             {
                 return HttpNotFound();
@@ -54,8 +62,8 @@ namespace Himac.Web.Areas.Admin.Controllers
         {
             if (ModelState.IsValid)
             {
-                db.HoiDaps.Add(hoiDap);
-                db.SaveChanges();
+                _hoiDapService.Insert(hoiDap);
+                _hoiDapService.Save();
                 return RedirectToAction("Index");
             }
 
@@ -64,13 +72,13 @@ namespace Himac.Web.Areas.Admin.Controllers
         }
 
         // GET: Admin/HoiDaps/Edit/5
-        public ActionResult Edit(int? id)
+        public ActionResult Edit(int id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            HoiDap hoiDap = db.HoiDaps.Find(id);
+            HoiDap hoiDap = _hoiDapService.SelectById(id);
             if (hoiDap == null)
             {
                 return HttpNotFound();
@@ -88,8 +96,8 @@ namespace Himac.Web.Areas.Admin.Controllers
         {
             if (ModelState.IsValid)
             {
-                db.Entry(hoiDap).State = EntityState.Modified;
-                db.SaveChanges();
+                _hoiDapService.Update(hoiDap);
+                _hoiDapService.Save();
                 return RedirectToAction("Index");
             }
             ViewBag.LinhVucId = new SelectList(db.LinhVucs, "LinhVucId", "TenLinhVuc", hoiDap.LinhVucId);
@@ -97,13 +105,14 @@ namespace Himac.Web.Areas.Admin.Controllers
         }
 
         // GET: Admin/HoiDaps/Delete/5
-        public ActionResult Delete(int? id)
+        public ActionResult Delete(int id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            HoiDap hoiDap = db.HoiDaps.Find(id);
+
+            HoiDap hoiDap = _hoiDapService.SelectById(id);
             if (hoiDap == null)
             {
                 return HttpNotFound();
@@ -116,19 +125,10 @@ namespace Himac.Web.Areas.Admin.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            HoiDap hoiDap = db.HoiDaps.Find(id);
-            db.HoiDaps.Remove(hoiDap);
-            db.SaveChanges();
-            return RedirectToAction("Index");
-        }
+            _hoiDapService.Delete(id);
+            _hoiDapService.Save();
 
-        protected override void Dispose(bool disposing)
-        {
-            if (disposing)
-            {
-                db.Dispose();
-            }
-            base.Dispose(disposing);
+            return RedirectToAction("Index");
         }
     }
 }

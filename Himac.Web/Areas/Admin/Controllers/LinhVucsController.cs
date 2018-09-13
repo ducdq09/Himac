@@ -1,10 +1,8 @@
-﻿using Himac.Data;
-using Himac.Model.Models;
-using System.Data.Entity;
+﻿using Himac.Model.Models;
+using Himac.Service;
 using System.Linq;
 using System.Net;
 using System.Web.Mvc;
-using Himac.Service;
 
 namespace Himac.Web.Areas.Admin.Controllers
 {

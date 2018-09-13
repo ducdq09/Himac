@@ -1,19 +1,22 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Data;
+﻿using Himac.Data;
+using Himac.Model.Models;
 using System.Data.Entity;
 using System.Linq;
 using System.Net;
-using System.Web;
 using System.Web.Mvc;
-using Himac.Data;
-using Himac.Model.Models;
+using Himac.Service;
 
 namespace Himac.Web.Areas.Admin.Controllers
 {
     public class VanBansController : Controller
     {
         private HimacDbContext db = new HimacDbContext();
+        private readonly IVanBanService _vanBanService;
+
+        public VanBansController(IVanBanService vanBanService)
+        {
+            this._vanBanService = vanBanService;
+        }
 
         // GET: Admin/VanBans
         public ActionResult Index()
@@ -23,18 +26,19 @@ namespace Himac.Web.Areas.Admin.Controllers
             ViewBag.vController = "Văn bản";
             ViewBag.vAction = "Danh sách";
 
-            var vanBans = db.VanBans.Include(v => v.LinhVuc).Include(v => v.LoaiVanBan);
+            var vanBans = _vanBanService.SelectAll();
             return View(vanBans.ToList());
         }
 
         // GET: Admin/VanBans/Details/5
-        public ActionResult Details(int? id)
+        public ActionResult Details(int id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            VanBan vanBan = db.VanBans.Find(id);
+
+            VanBan vanBan = _vanBanService.SelectById(id);
             if (vanBan == null)
             {
                 return HttpNotFound();
@@ -51,7 +55,7 @@ namespace Himac.Web.Areas.Admin.Controllers
         }
 
         // POST: Admin/VanBans/Create
-        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
+        // To protect from overposting attacks, please enable the specific properties you want to bind to, for
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
@@ -59,8 +63,8 @@ namespace Himac.Web.Areas.Admin.Controllers
         {
             if (ModelState.IsValid)
             {
-                db.VanBans.Add(vanBan);
-                db.SaveChanges();
+                _vanBanService.Insert(vanBan);
+                _vanBanService.Save();
                 return RedirectToAction("Index");
             }
 
@@ -70,13 +74,14 @@ namespace Himac.Web.Areas.Admin.Controllers
         }
 
         // GET: Admin/VanBans/Edit/5
-        public ActionResult Edit(int? id)
+        public ActionResult Edit(int id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            VanBan vanBan = db.VanBans.Find(id);
+
+            VanBan vanBan = _vanBanService.SelectById(id);
             if (vanBan == null)
             {
                 return HttpNotFound();
@@ -87,7 +92,7 @@ namespace Himac.Web.Areas.Admin.Controllers
         }
 
         // POST: Admin/VanBans/Edit/5
-        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
+        // To protect from overposting attacks, please enable the specific properties you want to bind to, for
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
@@ -95,8 +100,8 @@ namespace Himac.Web.Areas.Admin.Controllers
         {
             if (ModelState.IsValid)
             {
-                db.Entry(vanBan).State = EntityState.Modified;
-                db.SaveChanges();
+                _vanBanService.Update(vanBan);
+                _vanBanService.Save();
                 return RedirectToAction("Index");
             }
             ViewBag.LinhVucId = new SelectList(db.LinhVucs, "LinhVucId", "TenLinhVuc", vanBan.LinhVucId);
@@ -105,13 +110,13 @@ namespace Himac.Web.Areas.Admin.Controllers
         }
 
         // GET: Admin/VanBans/Delete/5
-        public ActionResult Delete(int? id)
+        public ActionResult Delete(int id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            VanBan vanBan = db.VanBans.Find(id);
+            VanBan vanBan = _vanBanService.SelectById(id);
             if (vanBan == null)
             {
                 return HttpNotFound();
@@ -124,19 +129,9 @@ namespace Himac.Web.Areas.Admin.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            VanBan vanBan = db.VanBans.Find(id);
-            db.VanBans.Remove(vanBan);
-            db.SaveChanges();
+            _vanBanService.Delete(id);
+            _vanBanService.Save();
             return RedirectToAction("Index");
-        }
-
-        protected override void Dispose(bool disposing)
-        {
-            if (disposing)
-            {
-                db.Dispose();
-            }
-            base.Dispose(disposing);
         }
     }
 }
