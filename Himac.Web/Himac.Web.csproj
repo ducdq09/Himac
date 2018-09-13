@@ -165,7 +165,6 @@
     <Compile Include="Areas\Admin\AdminAreaRegistration.cs" />
     <Compile Include="Areas\Admin\Controllers\HoiDapsController.cs" />
     <Compile Include="Areas\Admin\Controllers\LinhVucsController.cs" />
-    <Compile Include="Areas\Admin\Controllers\LoaiHoiDapsController.cs" />
     <Compile Include="Areas\Admin\Controllers\LoaiVanBansController.cs" />
     <Compile Include="Areas\Admin\Controllers\TinTucsController.cs" />
     <Compile Include="Areas\Admin\Controllers\VanBansController.cs" />
@@ -6971,11 +6970,6 @@
     <Content Include="Areas\Admin\Views\TinTucs\Details.cshtml" />
     <Content Include="Areas\Admin\Views\TinTucs\Edit.cshtml" />
     <Content Include="Areas\Admin\Views\TinTucs\Index.cshtml" />
-    <Content Include="Areas\Admin\Views\LoaiHoiDaps\Create.cshtml" />
-    <Content Include="Areas\Admin\Views\LoaiHoiDaps\Delete.cshtml" />
-    <Content Include="Areas\Admin\Views\LoaiHoiDaps\Details.cshtml" />
-    <Content Include="Areas\Admin\Views\LoaiHoiDaps\Edit.cshtml" />
-    <Content Include="Areas\Admin\Views\LoaiHoiDaps\Index.cshtml" />
     <Content Include="Areas\Admin\Views\HoiDaps\Create.cshtml" />
     <Content Include="Areas\Admin\Views\HoiDaps\Delete.cshtml" />
     <Content Include="Areas\Admin\Views\HoiDaps\Details.cshtml" />

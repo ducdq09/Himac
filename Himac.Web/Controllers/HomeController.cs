@@ -11,11 +11,13 @@ namespace Himac.Web.Controllers
     {
         private readonly IVanBanService _vanBanService;
         private readonly ITinTucService _tinTucService;
+        private readonly IHoiDapService _hoiDapService;
 
-        public HomeController(IVanBanService vanBanService, ITinTucService tinTucService)
+        public HomeController(IVanBanService vanBanService, ITinTucService tinTucService, IHoiDapService hoiDapService)
         {
             this._vanBanService = vanBanService;
             this._tinTucService = tinTucService;
+            this._hoiDapService = hoiDapService;
         }
 
         public ActionResult Index()
@@ -31,14 +33,14 @@ namespace Himac.Web.Controllers
 
         public ActionResult Get5HoiDapMoiNhat()
         {
-            var vanBans = _vanBanService.Select5VanBanMoiNhat().ToList();
-            return PartialView("_TopVanBan", vanBans);
+            var hoiDaps = _hoiDapService.Select5HoiDapMoiNhat();
+            return PartialView("_TopHoiDap", hoiDaps);
         }
 
         public ActionResult Get16TinTucMoiNhat()
         {
             var tinTucs = _tinTucService.Select16TinPhapLuatMoiNhat().ToList();
-            return PartialView("_TopHoiDap", tinTucs);
+            return PartialView("_TopTinTuc", tinTucs);
         }
 
         public ActionResult About()

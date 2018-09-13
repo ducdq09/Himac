@@ -32,11 +32,11 @@ namespace Himac.Model.Models
         public string FilePath { set; get; }
 
         [Required]
-        public int LoaiHoiDapId { set; get; }
+        public int LinhVucId { set; get; }
 
         public int? OrderHint { set; get; }
 
-        [ForeignKey("LoaiHoiDapId")]
-        public virtual LoaiHoiDap LoaiHoiDap { set; get; }
+        [ForeignKey("LinhVucId")]
+        public virtual LinhVuc LinhVuc { set; get; }
     }
 }

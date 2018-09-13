@@ -115,37 +115,7 @@
                 <div class="col-md-6 col-xs-12">
                     <b class="text-red">HỎI ĐÁP PHÁP LUẬT MỚI</b>
                     <div class="row" style="max-height: 500px; overflow: auto ; padding: 10px">
-                        <div class="form-group">
-                            <table class="table tblData table-striped table-bordered table-hover nowrap" style="width:100%">
-                                <tbody>
-                                    <tr role="row">
-                                        <td style="vertical-align: middle">
-                                            <a href="#">Lưu ý các vạch kẻ đường thông dụng để tránh bị phạt</a>
-                                        </td>
-                                    </tr>
-                                    <tr role="row">
-                                        <td style="vertical-align: middle">
-                                            <a href="#">Tổng hợp điểm mới văn bản nổi bật có hiệu lực trong tháng 9/2018</a>
-                                        </td>
-                                    </tr>
-                                    <tr role="row">
-                                        <td style="vertical-align: middle">
-                                            <a href="#">Những lưu ý không nên bỏ qua khi mua, bán nhà đất</a>
-                                        </td>
-                                    </tr>
-                                    <tr role="row">
-                                        <td style="vertical-align: middle">
-                                            <a href="#">Bí kíp mua bán nhà, đất</a>
-                                        </td>
-                                    </tr>
-                                    <tr role="row">
-                                        <td style="vertical-align: middle">
-                                            <a href="#">Tài liệu học nghiệp vụ Luật sư</a>
-                                        </td>
-                                    </tr>
-                                </tbody>
-                            </table>
-                        </div>
+                        @{Html.RenderAction("Get5HoiDapMoiNhat", "Home");}
                     </div>
                 </div>
             </div>

@@ -80,7 +80,6 @@
     <Compile Include="Abstract\IAuditable.cs" />
     <Compile Include="Models\LinhVuc.cs" />
     <Compile Include="Models\LoaiTinTuc.cs" />
-    <Compile Include="Models\LoaiHoiDap.cs" />
     <Compile Include="Models\LoaiVanBan.cs" />
     <Compile Include="Models\TinTuc.cs" />
     <Compile Include="Models\HoiDap.cs" />

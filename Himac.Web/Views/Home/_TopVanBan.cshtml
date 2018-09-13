@@ -11,11 +11,11 @@
                             var tenVb = item.TenVanBan;
                             if (tenVb.Length > 110)
                             {
-                                <a class="post-title" href="#">@item.TenVanBan.Substring(0, 110)...</a>
+                        <a class="post-title" href="#"><span class="fa fa-newspaper-o"></span> @item.TenVanBan.Substring(0, 110)...</a>
                             }
                             else
                             {
-                                <a class="post-title" href="#">@item.TenVanBan</a>
+                        <a class="post-title" href="#"><span class="fa fa-newspaper-o"></span> @item.TenVanBan</a>
                             }
                             <br/>
                         }
